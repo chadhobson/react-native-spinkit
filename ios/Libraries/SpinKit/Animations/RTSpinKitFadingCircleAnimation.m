@@ -33,13 +33,14 @@
     
     CGFloat radius = size.width / 2;
     CGFloat squareSize = size.width / 6;
-
+    CGFloat circleRadius = squareSize / 2;
+     
     for (NSInteger i=0; i < 12; i+=1) {
         CALayer *square = [CALayer layer];
         
         CGFloat angle = i * (M_PI_2/3.0);
-        CGFloat x = radius + sinf(angle) * radius;
-        CGFloat y = radius - cosf(angle) * radius;
+        CGFloat x = radius + sinf(angle) * radius - circleRadius;
+        CGFloat y = radius - cosf(angle) * radius - circleRadius;
         square.frame = CGRectMake(x, y, squareSize, squareSize);
         square.backgroundColor = color.CGColor;
         square.anchorPoint = CGPointMake(0.5, 0.5);
